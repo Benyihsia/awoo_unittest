@@ -6,5 +6,7 @@
             "email": "benhsia@awoo.com.tw"
         }
     ],
-    "require": {}
+    "require": {
+        "phpunit/phpunit": "^7.5"
+    }
 }
