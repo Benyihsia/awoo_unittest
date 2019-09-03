@@ -6,10 +6,14 @@ use App\Http\Client;
 
 class CheckoutController
 {
+    public function __construct()
+    {
+        $this->client = new Client;
+    }
+
     public function checkout()
     {
-        $client = new Client;
-        $result = $client->post('/checkout', $_POST['user']);
+        $result = $this->client->post('/checkout', $_POST['user']);
 
         $response = json_decode($result);
 
