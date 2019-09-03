@@ -27,7 +27,7 @@ class Register
      */
     public function register($request)
     {
-        if (null === $request['username']) {
+        if (! isset($request['username']) || empty($request['username'])) {
             return "username is empty.";
         }
 
