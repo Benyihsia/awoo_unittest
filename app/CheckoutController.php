@@ -6,14 +6,14 @@ use App\Http\Client;
 
 class CheckoutController
 {
-    public function __construct()
+    public function __construct(Client $client)
     {
-        $this->client = new Client;
+        $this->client = $client;
     }
 
     public function checkout()
     {
-        $result = $this->client->post('/checkout', $_POST['user']);
+        $result = $this->client->post('/checkout', $this->getRequest()['user']);
 
         $response = json_decode($result);
 
@@ -22,5 +22,10 @@ class CheckoutController
         }
 
         return "付款失敗，原因: $response->message";
+    }
+
+    protected function getRequest()
+    {
+        return $_POST;
     }
 }
