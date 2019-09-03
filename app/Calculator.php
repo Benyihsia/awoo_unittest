@@ -15,4 +15,15 @@ class Calculator
     {
         return $number1 + $number2;
     }
+
+    /**
+     * 計算面積
+     *
+     * @param Rectangle $rectangle
+     * @return int
+     */
+    public function getArea(Rectangle $rectangle)
+    {
+        return $rectangle->getHeight() * $rectangle->getWidth();
+    }
 }
